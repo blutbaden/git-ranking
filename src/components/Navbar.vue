@@ -16,24 +16,41 @@
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center text-white">
             <span class="block lg:hidden w-auto">x</span>
-            <span class="hidden lg:block w-auto font-bold	">GitRanking</span>
+            <div class="hidden lg:block w-auto font-bold	text-xl">
+              <router-link to="/">
+                <span class="text-white">
+                  GitRanking
+                </span>
+              </router-link>
+            </div>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Organizations</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Repositories</a>
+              <router-link to="/users">
+                <span class="hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Users</span>
+              </router-link>
+              <router-link to="/organizations">
+                <span class="hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Organizations</span>
+              </router-link>
+              <router-link to="/repositories">
+                <span class="hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Repositories</span>
+              </router-link>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div v-if="seen" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Users</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Organizations</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Repositories</a>
+        <router-link to="/users">
+          <span class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Users</span>
+        </router-link>
+        <router-link to="/organizations">
+          <span class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Organizations</span>
+        </router-link>
+        <router-link to="/repositories">
+          <span class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Repositories</span>
+        </router-link>
       </div>
     </div>
   </nav>
@@ -52,3 +69,14 @@ export default {
   }
 }
 </script>
+
+<style>
+#nav a {
+  font-weight: bold;
+  color: #fff;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
