@@ -4,7 +4,12 @@
       <h1 class="text-center font-bold text-gray text-4xl">GitRanking</h1>
       <p class="mx-auto font-normal text-sm my-6 max-w-lg">Unofficial GitHub star ranking for users, organizations and repositories.</p>
       <div class="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-3 justify-between">
-        <input class="text-base text-gray-400 flex-grow outline-none px-2 " type="text" placeholder="Github username ..." />
+        <input v-model="query" class="text-base text-gray-400 flex-grow outline-none px-2 " type="text" placeholder="Search Github user or organization ..." />
+        <button @click="search()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
       </div>
     </form>
   </div>
@@ -12,14 +17,18 @@
 
 <script>
 export default {
-  name: "Search"
+  name: "Search",
+  pros: {
+    query: String,
+  },
+  methods: {
+    search() {
+      this.$emit('search', this.query);
+    },
+  }
 }
 </script>
 
 <style scoped>
-.tailwindccsok {
-  background-image : url('https://th.bing.com/th/id/R.9fec627c14e4139d329eb1e89c750de6?rik=EroFSldai0o6Ug&riu=http%3a%2f%2fwww.peimag.com%2fwp-content%2fuploads%2f2015%2f10%2fblack-eyes2.jpg&ehk=r1dQ5fzKeg0ILkaX5esbRxeZolXZamBKJN6VUezk3wY%3d&risl=&pid=ImgRaw');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 </style>

@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import ParentInfoEnum from "../enum/ParentInfoEnum";
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '*',
+    name: 'Home',
+    component: Home
+  },
   {
     path: '/',
     name: 'Home',
@@ -19,29 +25,38 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/repositories',
-    name: 'Repositories',
-    component: () => import(/* webpackChunkName: "repositories" */ '../views/Repository.vue')
+    path: '/organizations',
+    name: 'Organizations',
+    props: { parentInfo: ParentInfoEnum.ORG },
+    component: () => import(/* webpackChunkName: "organizations" */ '../views/Rank.vue')
   },
   {
     path: '/users',
-    name: 'Users',
-    component: () => import(/* webpackChunkName: "users" */ '../views/User.vue')
+    name: 'User',
+    props: { parentInfo: ParentInfoEnum.USER },
+    component: () => import(/* webpackChunkName: "organizations" */ '../views/Rank.vue')
   },
   {
-    path: '/organizations',
-    name: 'Organizations',
-    component: () => import(/* webpackChunkName: "organizations" */ '../views/Organization.vue')
+    path: '/repositories',
+    name: 'Repositories',
+    props: { parentInfo: ParentInfoEnum.REPO },
+    component: () => import(/* webpackChunkName: "organizations" */ '../views/Rank.vue')
   },
   {
-    path: '/search/:name',
-    name: 'Search',
-    component: () => import(/* webpackChunkName: "search" */ '../views/SearchDetails.vue')
+    path: '/:name',
+    name: 'Search Organization Or User',
+    component: () => import(/* webpackChunkName: "search" */ '../views/Search.vue')
   },
-
+  {
+    path: '/:owner/:name',
+    name: 'Search Repository',
+    props: { parentInfo: ParentInfoEnum.REPO },
+    component: () => import(/* webpackChunkName: "search" */ '../views/Search.vue')
+  },
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
