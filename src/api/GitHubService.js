@@ -1,5 +1,7 @@
 import axios from "axios"
 
+const AUTH_KEY = "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";
+
 export default {
     async getTopStarredRepositoriesByPage(page, size) {
         let res = await axios.get(`https://api.github.com/search/repositories?q=stars:%3E1&sort=stars&per_page=${size}&page=${page}`);
@@ -30,7 +32,7 @@ export default {
         `
         let query = `
             {
-              user: repositoryOwner(login: "Microsoft") {
+              user: repositoryOwner(login: "${login}") {
                 login type: __typename
                 ... on User {
                   bio company ${queryArg}
@@ -46,7 +48,7 @@ export default {
             },
             {
                 headers:
-                    {Authorization: "bearer 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"}
+                    {Authorization: `bearer ${AUTH_KEY}`}
             }
         );
         return res.data;

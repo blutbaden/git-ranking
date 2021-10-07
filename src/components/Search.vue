@@ -20,6 +20,12 @@ export default {
   name: "Search",
   pros: {
     query: String,
+    default: "",
+  },
+  data() {
+    return {
+      query: this.query
+    }
   },
   methods: {
     search() {
