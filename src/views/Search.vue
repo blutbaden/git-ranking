@@ -24,11 +24,11 @@
           <template v-if="parentInfo !== repoKey">
             <div class="grid grid-cols-4 my-2 bg-gray-50 rounded-sm p-2">
               <span class="col-span-1 text-gray-500">Bio</span>
-              <span class="col-span-3 text-sm italic text-gray-400 pl-1">{{ user.bio }}</span>
+              <span class="col-span-3 text-sm italic text-gray-400 pl-1">{{ user.bio ? user.bio : 'None' }}</span>
             </div>
             <div class="grid grid-cols-4 mb-2 bg-gray-50 rounded-sm p-2">
               <span class="col-span-1 text-gray-500">Joined</span>
-              <span class="col-span-3 text-sm italic text-gray-400 pl-1">{{ user.createdAt }}</span>
+              <span class="col-span-3 text-sm italic text-gray-400 pl-1">{{ formatDate(user.createdAt) }}</span>
             </div>
           </template>
           <div class="flex space-x-1 items-center text-blue-400 hover:text-blue-500">
@@ -75,7 +75,7 @@
             </div>
             <div class="flex flex-1 flex-col	items-center">
               <span class="text-gray-500 text-xl">Created At</span>
-              <span class="text-2xl">{{ repo.created_at }}</span>
+              <span class="text-2xl">{{ formatDate(repo.created_at) }}</span>
             </div>
           </div>
         </template>
@@ -207,6 +207,10 @@ export default {
       this.loadingMore = true;
       this.getData();
     },
+    formatDate(dateString) {
+      const options = { year: "numeric", month: "long", day: "numeric" }
+      return new Date(dateString).toLocaleDateString(undefined, options)
+    }
   }
 }
 </script>

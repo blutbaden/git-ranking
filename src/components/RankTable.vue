@@ -56,9 +56,6 @@ export default {
     items: Array,
     default: () => ({})
   },
-  mounted () {
-    console.log(this.items)
-  },
 }
 </script>
 

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const AUTH_KEY = "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";
+const AUTH_KEY = "YOUR_API_KEY";
 
 export default {
     async getTopStarredRepositoriesByPage(page, size) {
@@ -8,11 +8,11 @@ export default {
         return res.data;
     },
     async getTopStarredOrganizationsByPage(page, size) {
-        let res = await axios.get(`https://api.github.com/search/repositories?q=stars:%3E1&sort=stars&per_page=${size}&page=${page}`);
+        let res = await axios.get(`https://api.github.com/search/users?q=type:org&sort=followers&per_page=${size}&page=${page}`);
         return res.data;
     },
     async getTopStarredUsersByPage(page, size) {
-        let res = await axios.get(`https://api.github.com/search/repositories?q=stars:%3E1&sort=stars&per_page=${size}&page=${page}`);
+        let res = await axios.get(`https://api.github.com/search/users?q=followers:>=0&type=user&&per_page=${size}&page=${page}`);
         return res.data;
     },
     //The User object can be a user or an organization
