@@ -1,24 +1,9 @@
-# git-ranking
+# Github Ranking
 
-## Project setup
-```
-npm install
-```
+This project is a simple application that consume Github api's to display ranking by organization, repositories or users.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This project is developed using VueJS version 2.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Development server
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Run `npm run serve` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.

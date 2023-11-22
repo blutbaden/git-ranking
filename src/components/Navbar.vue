@@ -18,8 +18,11 @@
             <span class="block lg:hidden w-auto">x</span>
             <div class="hidden lg:block w-auto font-bold	text-xl">
               <router-link to="/">
+              <span class="text-green">
+                Git
+               </span>
                 <span class="text-white">
-                  GitRanking
+                  Ranking
                 </span>
               </router-link>
             </div>

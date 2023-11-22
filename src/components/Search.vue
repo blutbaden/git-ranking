@@ -1,8 +1,8 @@
 <template>
   <div class="mx-auto bg-gray-200 rounded-lg p-10 mt-5">
     <form>
-      <h1 class="text-center font-bold text-gray text-4xl">GitRanking</h1>
-      <p class="mx-auto font-normal text-sm my-6 max-w-lg">Unofficial GitHub star ranking for users, organizations and repositories.</p>
+      <h6 class="text-center font-bold text-gray text-4xl">Github Ranking</h6>
+      <p class="mx-auto font-normal text-md my-6 max-w-lg">Unofficial GitHub star ranking for users, organizations and repositories.</p>
       <div class="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-3 justify-between">
         <input v-model="query" class="text-base text-gray-400 flex-grow outline-none px-2 " type="text" placeholder="Search Github user or organization ..." />
         <button @click="search()">
