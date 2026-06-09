@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        VITE_GITHUB_TOKEN: ${VITE_GITHUB_TOKEN:-}
+    ports:
+      - "8080:80"
+    restart: unless-stopped

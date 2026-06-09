@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex flex-col min-h-screen">
     <Navbar/>
-    <router-view :key="$route.fullPath"></router-view>
+    <main class="flex-1">
+      <router-view :key="$route.fullPath"></router-view>
+    </main>
     <Footer/>
   </div>
 </template>
@@ -16,9 +18,9 @@
 }
 </style>
 <script>
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar.vue"
+import Footer from "./components/Footer.vue"
 export default {
-  components: {Footer, Navbar}
+  components: { Footer, Navbar }
 }
 </script>
